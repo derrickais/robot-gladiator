@@ -27,6 +27,22 @@ var fight = function() {
     console.log(
         enemyName + " attacked " + playerName + ". " + playerName + " now has " + playerHealth + " health remaining."
         );
+    
+    if (enemyHealth <= 0){
+        window.alert(enemyName + " has died!");
+    }
+    else{
+        window.alert(enemyName + " still has " + enemyHealth + " health left.")
+    }
+
+    console.log(enemyName + " attacked " + playerName + ". " + playerName + " now has " + playerHealth + " health remaining. ");
+
+    if (playerHealth <= 0) {
+        window.alert(playerName + " has died!");
+    }
+    else {
+        window.alert(playerName + " still has " + playerHealth + " health left. ");
+    }
 }
 
 fight();
