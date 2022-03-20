@@ -1,8 +1,8 @@
-// Game States
-// "WIN" - Player robot has defeated all enemy-robots
-//      * Fight all enemy-robots
-//      * Defeat each enemy-robot
-// "LOSE" - Player robot's health is zero or less  
+var randomNumber = function(min,max) {
+    var value = Math.floor(Math.random() * (max - min + 1) + min);
+
+    return value;
+}
 
 var fight = function(enemy) {
 
@@ -24,6 +24,7 @@ var fight = function(enemy) {
                 break;
             }
         } 
+
         var damage = randomNumber(playerInfo.attack - 3, playerInfo.attack);
 
         enemy.health = Math.max(0, enemy.health - playerInfo.attack);
@@ -86,14 +87,15 @@ var startGame = function(){
 
             break;
             
-        }
-        
+        }  
     }
 
     endGame();
 };
 
 var endGame = function(){
+    window.alert("The game has now ended. Let's see how you did!")
+
     if (playerInfo.health > 0) {
         window.alert("Great jon, you've survived the game! you now have a score of " + playerInfo.money + ".");
     } else {
@@ -113,6 +115,7 @@ var shop = function() {
     var shopOptionPrompt = window.prompt(
         "Would you like to REFILL your health, UPGRADE your attack, or LEAVE the store? Please enter one: 'REFILL', 'UPGRADE', or 'LEAVE' to make a choice."
     )
+    
     switch(shopOptionPrompt) {
         case "refill":
         case "REFILL":
@@ -132,12 +135,6 @@ var shop = function() {
             break;
     }
 };
-
-var randomNumber = function(min,max) {
-    var value = Math.floor(Math.random() * (max - min + 1) + min);
-
-    return value;
-}
 
 var playerInfo = {
     name : window.prompt("What is your robot's name?"),
@@ -169,7 +166,6 @@ var playerInfo = {
     }
 };
 
-
 var enemyInfo = [
     {
         name: "Roborto",
@@ -184,6 +180,11 @@ var enemyInfo = [
         attack: randomNumber (10,14)
     }
 ];
+
+console.log(enemyInfo);
+console.log(enemyInfo[0]);
+console.log(enemyInfo[0].name);
+console.log(enemyInfo[0]['attack']);
 
 startGame();
 
